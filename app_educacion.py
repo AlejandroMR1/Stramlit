@@ -4,17 +4,12 @@ import pandas as pd
 # Título de la aplicación
 st.title("Análisis de Datos de Educación en Colombia")
 
-# Cargar el archivo CSV usando un widget de carga de archivos
-uploaded_file = st.file_uploader("Cargar archivo 'educacion.csv'", type=["csv"])
+# Cargar el archivo CSV directamente desde la raíz del repositorio
+df = pd.read_csv("educacion.csv")  
 
-# Verificar si el archivo fue cargado
-if uploaded_file is not None:
-    # Leer el archivo CSV
-    df = pd.read_csv(uploaded_file)
-    
-    # Mostrar el DataFrame en la página principal
-    st.subheader("Tabla de Datos de Educación")
-    st.dataframe(df)
+# Mostrar el DataFrame en la página principal
+st.subheader("Tabla de Datos de Educación")
+st.dataframe(df)
 
 # Agregar widgets para filtrar los datos
 st.sidebar.header("Filtros")
